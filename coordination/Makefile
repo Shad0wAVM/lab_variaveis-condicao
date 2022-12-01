@@ -5,7 +5,7 @@
 #
 
 CC = gcc
-CFLAGS = -g -Wall -std=c11
+CFLAGS = -g -Wall -std=c17
 
 
 coordination: coordination.o
@@ -14,4 +14,4 @@ coordination: coordination.o
 coordination_condvar: coordination_condvar.o
 	gcc -o coordination_condvar coordination_condvar.o -lpthread
 clean:
-	rm -f *.o coordination 
+	rm -f *.o coordination coordination_condvar
