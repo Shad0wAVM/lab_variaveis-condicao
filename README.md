@@ -65,13 +65,13 @@ Relembra que o que `pthread_cond_wait` faz é:
 ao usar: `pthread_cond_wait(&cond, &mutex)`
 
 - primeiro desbloqueia o &mutex
-- espera por: signal(&cond)
+- espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)`
 - finalment: bloqueia o &mutex novamente e continua execução
 
 d) Não se esqueça de, inversamente, chamar a função `pthread_cond_signal` no(s)
 local(is) onde a condição de espera seja modificada.
 
-e) Compile o novo programa e execute-o de novo usando o seguinte comando:
+e) Compile o novo programa (com `make coordination_condvar`) e execute-o de novo usando o seguinte comando:
 `time ./coordination_condvar`
 
 O que mudou nos tempos reportados pelo comando time (relativamente aos tempos
