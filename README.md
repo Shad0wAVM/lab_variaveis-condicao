@@ -17,7 +17,7 @@ No final deste guião, deverá ser capaz de:
 
 ## Coordenação entre tarefas usando variáveis de condição
 
-1. Descarregue o zip e analise o programa [coordination.c](./coordination/coordination.c)
+1. Faça clone do repositório e analise o programa [coordination.c](./coordination/coordination.c)
 Este programa implementa uma situação simples de coordenação entre tarefas. Neste
 caso, a tarefa inicial cria uma nova tarefa. Durante a execução do programa, há dois
 momentos de coordenação (em que uma tarefa espera até que outra tarefa execute alguma
@@ -57,15 +57,16 @@ usando a função `pthread_cond_wait`. Não se esqueça que esta função deve s
 chamada de acordo com este padrão:
 
 ```c
-while (! condicaoParaSairDaEspera)
+while (! condicaoParaSairDaEspera) {
    pthread_cond_wait(variavel_de_condicao, trinco);
+}
 ```
 
 Relembra que o que `pthread_cond_wait` faz é:
 ao usar: `pthread_cond_wait(&cond, &mutex)`
 
 - primeiro desbloqueia o &mutex
-- espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)`
+- espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)` ou com `pthread_cond_broadcast(&cond)`
 - finalment: bloqueia o &mutex novamente e continua execução
 
 d) Não se esqueça de, inversamente, chamar a função `pthread_cond_signal` no(s)
