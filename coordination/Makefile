@@ -5,13 +5,17 @@
 #
 
 CC = gcc
-CFLAGS = -g -Wall -std=c17
+CFLAGS = -g -Wall -std=c17 -lpthread
+LDFLAGS = -lpthread
 
+all: coordination coordination_condvar
 
 coordination: coordination.o
-	gcc -o coordination coordination.o -lpthread
 
 coordination_condvar: coordination_condvar.o
-	gcc -o coordination_condvar coordination_condvar.o -lpthread
+
+fmt:  coordination.c coordination_condvar.c
+	clang-format -i $^
+
 clean:
 	rm -f *.o coordination coordination_condvar
