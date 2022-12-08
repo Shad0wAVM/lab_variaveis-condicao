@@ -29,10 +29,10 @@ tarefa inicial.
 da tarefa nova antes de imprimir o valor final no `stdout`.
 
 2. Compile usando a Makefile fornecida e experimente correr o programa usando o
-seguinte comando: `time ./coordination/coordination`
+seguinte comando: `time ./coordination`
 
 
-3. De seguida Analise os tempos apresentados no ecrã, em especial a componente `real` (tempo que
+1. De seguida analise os tempos apresentados no ecrã, em especial a componente `real` (tempo que
 passou até ao processo terminar) e a componente `user` (tempo de processador
 consumido pelo programa). Os tempos user e real são muito próximos. Isso significa que o processo esteve em
 execução (com uma ou outra tarefa) durante quase todo o tempo — apesar de grande
@@ -62,12 +62,11 @@ while (! condicaoParaSairDaEspera) {
 }
 ```
 
-Relembra que o que `pthread_cond_wait` faz é:
-ao usar: `pthread_cond_wait(&cond, &mutex)`
+Relembrar ao usar `pthread_cond_wait(&cond, &mutex)` que:
 
 - primeiro desbloqueia o &mutex
-- espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)` ou com `pthread_cond_broadcast(&cond)`
-- finalment: bloqueia o &mutex novamente e continua execução
+- de seguida, espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)` ou com `pthread_cond_broadcast(&cond)`
+- finalmente, bloqueia o &mutex novamente e continua execução
 
 d) Não se esqueça de, inversamente, chamar a função `pthread_cond_signal` no(s)
 local(is) onde a condição de espera seja modificada.
@@ -80,7 +79,7 @@ reportados para a versão original)?
 Como explica essa mudança?
 Esta mudança é positiva? Porquê?
 
-5. Agora aplique estes conhecimentos no seu projeto, para implementar as situações de
+1. Agora aplique estes conhecimentos no seu projeto, para implementar as situações de
 coordenação entre tarefas que lá existam!
 
 
