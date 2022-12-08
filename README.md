@@ -68,18 +68,13 @@ chamada de acordo com este padrão:
    - de seguida espera pelo signal na variável `&cond`, signal enviado com: `pthread_cond_signal(&cond)` ou com `pthread_cond_broadcast(&cond)`
    - finalmente bloqueia o &mutex novamente e continua execução
 
-1. Não se esqueça de adicionar a chamada à função `pthread_cond_signal` no(s)
+8. Não se esqueça de adicionar a chamada à função `pthread_cond_signal` no(s)
 local(is) onde a condição de espera seja modificada.
 
-1. Compile o novo programa (com `make coordination_condvar`) e execute-o de novo usando o seguinte comando:
-`time ./coordination_condvar`
+9. Compile o novo programa (com `make coordination_condvar`) e execute-o de novo usando o seguinte comando:
+`time ./coordination_condvar`. O que mudou nos tempos reportados pelo comando time (relativamente aos tempos reportados para a versão original)? Como explica essa mudança? Esta mudança é positiva? Porquê?
 
-   O que mudou nos tempos reportados pelo comando time (relativamente aos tempos
-   reportados para a versão original)?
-   Como explica essa mudança?
-   Esta mudança é positiva? Porquê?
-
-1.  Agora aplique estes conhecimentos no seu projeto, para implementar as situações de
+10.  Agora aplique estes conhecimentos no seu projeto, para implementar as situações de
 coordenação entre tarefas que lá existam!
 
 
