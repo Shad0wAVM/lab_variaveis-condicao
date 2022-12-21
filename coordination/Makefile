@@ -5,8 +5,8 @@
 #
 
 CC = gcc
-CFLAGS = -g -Wall -std=c17 -lpthread
-LDFLAGS = -lpthread
+CFLAGS = -g -Wall -std=c17 -pthread
+LDFLAGS = -pthread
 
 all: coordination coordination_condvar
 
