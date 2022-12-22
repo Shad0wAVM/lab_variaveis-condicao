@@ -14,7 +14,9 @@ void *thr_func(void *ptr) {
         exit(EXIT_FAILURE);
 
     // TO DO: wait g_value==0
-
+    while(g_value == 0){
+        pthread_cond_wait(&cond, &g_mutex);
+    }
     // second step: change the value
     fprintf(stdout, "[thread #%ld] read value=%d, will increment\n", pthread_self(),
            g_value);
@@ -29,7 +31,7 @@ void *thr_func(void *ptr) {
 
 int main() {
     pthread_t tid;
-
+    pthread_cond_init(&cond, NULL);
 
     // spin new thread
     int error_num = pthread_create(&tid, NULL, thr_func, NULL);
@@ -47,7 +49,7 @@ int main() {
 
     // increment the value
     g_value++;
-
+    pthread_cond_signal(&cond);
     // TODO: signal change to the condvar
 
     if (pthread_mutex_unlock(&g_mutex) != 0) {
