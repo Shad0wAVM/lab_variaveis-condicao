@@ -79,7 +79,7 @@ Quando a tarefa bloqueada acorda, recupera o trinco que tinha.
 O facto de ter acordado não significa que a condição tenha sido satisfeita, pelo que deve voltar a verificar se a condição está satisfeita, em ciclo.
 Ou seja, a tarefa que espera pode ter de bloquear e acordar várias vezes até que a condição seja finalmente satisfeita.
 
-Agora pode aplicar estes conhecimentos noutros projetos, para implementar as situações de coordenação entre tarefas que lá existam!
+Agora pode aplicar estes conhecimentos noutros projetos, para implementar as situações de coordenação entre tarefas que lá existam, sem espera ativa!
 
 ----
 
